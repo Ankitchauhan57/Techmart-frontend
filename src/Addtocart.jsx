@@ -19,54 +19,6 @@ const Addtocart = () => {
 
   return (
     <>
-      {/* <div className="container mx-auto  px-4 py-8 text-center my-20">
-        <h2 className="text-6xl font-semibold mb-4">Your Cart</h2>
-
-        {cartItems.length === 0 ? (
-          <p className="text-gray-600 text-xl p-2">Your cart is empty.</p>
-        ) : (
-          <div className="overflow-x-auto">
-            <table className="min-w-full border border-gray-200 text-sm md:text-base">
-              <thead className="bg-gray-100">
-                <tr>
-                  <th className="px-4 py-2 text-left">Product</th>
-                  <th className="px-4 py-2 text-right">Price</th>
-                  <th className="px-4 py-2 text-center">Quantity</th>
-                  <th className="px-4 py-2 text-right">Subtotal</th>
-                  <th className="px-4 py-2 text-center">Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                {cartItems.map((item) => {
-                  const quantity = item.quantity || 1; // fallback to 1 if missing
-                  const subtotal = item.price * quantity;
-
-                  return (
-                    <tr key={item.id} className="border-t border-gray-200 text-center">
-                      <td className="px-4 py-2 text-left">{item.name}</td>
-                      <td className="px-4 py-2 text-right">${item.price.toFixed(2)}</td>
-                      <td className="px-4 py-2">{item.quantity || 1}</td>
-                      <td className="px-4 py-2 text-right">${(item.price * (item.quantity || 1)).toFixed(2)}</td>
-                      <td className="px-4 py-2">
-                        <button
-                          onClick={() => removeFromCart(item.id)}
-                          className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition"
-                        >
-                          Remove
-                        </button>
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-            <div >
-              <button type="button" className='bg-black text-white px-12 py-2 mt-10 text-2xl font-semibold' onClick={()=> alert("Order placed")}> Buy Now</button>
-            </div>
-          </div>
-
-        )}
-      </div> */}
      <div className="container mx-auto px-4 py-8 text-center my-20">
   <h2 className="text-6xl font-semibold mb-4">Your Cart</h2>
 
@@ -137,7 +89,7 @@ const Addtocart = () => {
       </div>
 
       <div className="mt-4 sm:mt-10">
-        <button type="button" className="bg-black text-white px-12 py-2 text-2xl font-semibold rounded" onClick={() => alert("Order placed")} >
+        <button type="button" className="bg-black text-white px-12 py-2 text-2xl font-semibold rounded" onClick={() => navigate(`/${username}/buy`, { state: { cartItems } })} >
           Buy Now
         </button>
       </div>

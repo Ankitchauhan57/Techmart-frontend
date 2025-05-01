@@ -12,6 +12,7 @@ import ProductDetail from './components/ProductDetail'
 import Notfound from './Notfound';
 import Addtocart from './Addtocart';
 import Wishlist from './Wishlist';
+import Buy from './Buy';
 
 const App = () => {
   return (
@@ -29,6 +30,7 @@ const App = () => {
           <Route path="*" element={<Notfound/>}/>
           <Route path="/cart" element={<Addtocart/>}/>
           <Route path="/wishlist" element={<Wishlist/>}/>
+          <Route path=":user/buy" element={<Buy/>}/>
 
 
         </Routes>

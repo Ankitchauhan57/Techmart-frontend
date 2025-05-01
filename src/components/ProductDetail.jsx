@@ -56,6 +56,15 @@ const ProductDetail = () => {
       console.error("Failed to update wishlist:", error);
     }
   };
+  const handleBuy = (product) => {
+    const username = localStorage.getItem('username');
+    if (username) {
+      navigate(`/${username}/buy`, { state: { ...product, quantity: text } });
+    } else {
+      alert('Please log in first.');
+      navigate("/login");
+    }
+  };
 
   return (
     <>
@@ -86,7 +95,7 @@ const ProductDetail = () => {
               </div>
 
               {/* Buy Now Button */}
-              <button type="button" className="bg-black text-white px-6 py-2 text-sm sm:text-base" onClick={() => alert("Order placed")}>
+              <button type="button" className="bg-black text-white px-6 py-2 text-sm sm:text-base" onClick={()=>{handleBuy(product)}}>
                 Buy Now
               </button>
 
