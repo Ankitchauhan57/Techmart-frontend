@@ -4,7 +4,7 @@ import { useNavigate, NavLink,useLocation } from 'react-router-dom'
 
 import search from '../assets/images/seacrh.svg'
 import wishlist from '../assets/images/Wishlist.svg'
-import cart from '../assets/images/Cart1 with Buy.svg'
+import cart from '../assets/images/Cart1-with-buy.svg'
 
 const Navbar = () => {
     const [username, setUsername] = useState('');
