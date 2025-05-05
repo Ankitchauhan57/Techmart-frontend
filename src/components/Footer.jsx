@@ -1,5 +1,5 @@
 import React from 'react'
-import Qrcode from '../assets/images/Qr-code.png' 
+import Qrcode from '../assets/images/qrcode.png' 
 import googleplay from '../assets/images/google-play.png' 
 import appleplay from '../assets/images/app-store.png' 
 import copyright from '../assets/images/copyright.svg'
@@ -60,7 +60,7 @@ const Footer = () => {
       <h1 className="text-lg font-semibold pb-2">Download App</h1>
       <p className="text-sm mb-2">Save $3 with App New User Only</p>
       <div className="flex gap-3">
-        <img src={Qrcode} alt="qr" className="w-16 h-16" />
+        <img src={Qrcode} alt="qrcode" className="w-16 h-16" />
         <div className="flex flex-col gap-2">
           <img src={googleplay} alt="Google Play" className="w-24" />
           <img src={appleplay} alt="Apple Store" className="w-24" />
