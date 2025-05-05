@@ -86,6 +86,7 @@ const Home = () => {
                   <p className='font-semibold cursor-pointer underline underline-offset-3' onClick={() => navigate("/products")}>Shop now</p>
                 </div>
               </div>
+              
               <div className='flex flex-col gap-10 w-full sm:w-[50%]'>
                 <div className='flex items-end bg-[url(/images/op_watch-removebg.png)] h-[43%] bg-[position:80%_center] p-5 hover:bg-[length:50%] bg-no-repeat rounded-lg bg-black'>
                   <div className='text-white flex flex-col w-[45%] p-3'>
@@ -267,8 +268,9 @@ const Home = () => {
       </div>
 
 
-      <div className='bg-gray-300 fixed bottom-9 right-5 w-10 h-10 rounded-full bg-[url(images/icons_arrow-up.svg)] bg-center bg-no-repeat cursor-pointer'
+      <div className='bg-gray-300 fixed bottom-9 right-5 w-10  p-2 h-10 rounded-full  cursor-pointer flex justify-center'
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+          <img src="images/icons_arrow-up.svg" alt="up" />
       </div>
 
 
