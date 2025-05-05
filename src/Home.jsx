@@ -79,7 +79,7 @@ const Home = () => {
           <div className='mt-10'>
             <div className='flex flex-col sm:flex-row justify-center gap-10 sm:gap-10'>
               <div className='bg-black text-white rounded-lg shadow-lg w-full sm:w-[45%] relative overflow-hidden'>
-                <img src={ps5} alt="PlayStation" className="mt-30 rounded-md hover:scale-105" />
+                <img src={ps5} alt="PlayStation" className="mt-30 rounded-md hover:scale-105 transition-all duration-300" />
                 <div className='absolute inset-0 flex flex-col justify-end p-4 w-[65%]'>
                   <p className='text-lg font-semibold'>PlayStation 5</p>
                   <p className='text-gray-300'>Black and White version of the PS5 coming out on sale.</p>
@@ -88,7 +88,7 @@ const Home = () => {
               </div>
               
               <div className='flex flex-col gap-10 w-full sm:w-[50%]'>
-                <div className='flex items-end bg-[url(/images/op_watch-removebg.png)] h-[43%] bg-[position:80%_center] p-5 hover:bg-[length:50%] bg-no-repeat rounded-lg bg-black'>
+                <div className='flex items-end bg-[url(/images/op_watch-removebg.png)] h-[43%] bg-[position:80%_center] p-5 hover:bg-[length:50%] bg-no-repeat rounded-lg bg-black transition-all duration-300'>
                   <div className='text-white flex flex-col w-[45%] p-3'>
                     <p className='text-lg font-semibold'>Smart Watch</p>
                     <p className='text-gray-300 text-sm'>Apple ultra watch coming out on sale, grab it soon.</p>
@@ -97,14 +97,14 @@ const Home = () => {
                 </div>
 
                 <div className='flex gap-10 h-[50%]'>
-                  <div className='bg-black w-[50%] h-[100%] flex items-end border-2 border-black rounded-lg bg-[url(/images/speakerlarge.png)] bg-[length:auto_75%] hover:bg-[length:90%] bg-center bg-no-repeat'>
+                  <div className='bg-black w-[50%] h-[100%] flex items-end border-2 border-black rounded-lg bg-[url(/images/speakerlarge.png)] bg-[length:auto_75%] hover:bg-[length:90%] bg-center bg-no-repeat transition-all duration-300'>
                     <div className='text-white flex flex-col p-3'>
                       <p className='text-lg font-semibold'>Speakers</p>
                       <p className='text-gray-300 text-sm'>Amazon wireless speakers</p>
                       <p className='font-semibold cursor-pointer underline underline-offset-3' onClick={() => navigate("/products")}>Shop now</p>
                     </div>
                   </div>
-                  <div className='bg-black w-[50%] flex items-end border-2 border-black rounded-lg bg-[url(/images/op_headphone-removebg.png)] bg-[length:auto_75%] hover:bg-[length:90%] bg-center bg-no-repeat'>
+                  <div className='bg-black w-[50%] flex items-end border-2 border-black rounded-lg bg-[url(/images/op_headphone-removebg.png)] bg-[length:auto_75%] hover:bg-[length:90%] bg-center bg-no-repeat transition-all duration-300'>
                     <div className='text-white flex flex-col p-3'>
                       <p className='text-lg font-semibold'>HeadPhone</p>
                       <p className='text-gray-50 text-sm'>Hot wireless Music</p>
