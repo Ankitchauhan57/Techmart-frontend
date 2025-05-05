@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import bg_2 from './assets/images/bg-2.png'
-import ps5 from './assets/images/ps5 large.png'
+import ps5 from './assets/images/ps5-large.png'
 import { useNavigate } from 'react-router-dom';
 
 

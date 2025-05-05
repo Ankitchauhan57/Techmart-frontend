@@ -1,5 +1,5 @@
 import React from 'react'
-import Qrcode from '../assets/images/Qr code.png' 
+import Qrcode from '../assets/images/Qr-code.png' 
 import googleplay from '../assets/images/google-play.png' 
 import appleplay from '../assets/images/app-store.png' 
 import copyright from '../assets/images/copyright.svg'

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom'
-import sideimg from "./assets/images/Side Image.png"
+import sideimg from "./assets/images/Side-Image.png"
 import google from "./assets/images/Google.svg"
 
 
