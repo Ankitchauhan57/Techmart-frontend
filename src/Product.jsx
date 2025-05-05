@@ -10,7 +10,7 @@ const Product = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('http://localhost:4000/products')
+    fetch('http://localhost:3000/products')
       .then((res) => {
         if (!res.ok) {
           throw new Error('Failed to fetch data');
