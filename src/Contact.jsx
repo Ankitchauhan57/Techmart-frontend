@@ -15,7 +15,7 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('https://your-backend-url.com/api/contact', formData);
+      const res = await axios.post('https://techmart-backend-v4mh.onrender.com/contact', formData);
 
       if (res.status === 200 || res.status === 201) {
         alert('Message sent successfully!');
