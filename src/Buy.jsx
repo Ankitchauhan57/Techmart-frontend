@@ -1,7 +1,44 @@
 import React, { useState } from 'react'
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 import { useLocation, useNavigate } from 'react-router-dom'
 
 const Buy = () => {
+    const [formData, setFormData] = useState({
+        name: '',
+        address: '',
+        extra: '',
+        town: '',
+        phone: '',
+        email: '',
+        saveInfo: false,
+    });
+
+    const handleChange = (e) => {
+        const { id, value, type, checked } = e.target;
+        setFormData((prev) => ({
+            ...prev,
+            [id]: type === 'checkbox' ? checked : value,
+        }));
+    };
+
+    // Expose this if you need to submit from outside
+    const handlePost = async () => {
+        try {
+          const res = await axios.post('https://your-backend.com/api/billing', {
+            ...formData,
+            cartItems,
+            total,
+            paymentMethod,
+          });
+          alert('Billing information submitted!');
+        } catch (err) {
+          console.error(err);
+          alert('Failed to submit billing info.');
+        }
+      };
+      
+
     const location = useLocation();
     const navigate = useNavigate();
     const product = location.state;
@@ -31,20 +68,20 @@ const Buy = () => {
             <div className='flex flex-col lg:justify-between  lg:flex-row gap-10 mt-8 lg:px-20 px-4'>
                 <div className='flex flex-col gap-4 w-full lg:w-2/6'>
                     <h1 className='text-3xl font-semibold mb-6'>Billing Details</h1>
-                    <label htmlFor="Name">First Name *</label>
-                    <input type="text" id="Name" required className='bg-gray-100 p-2 outline-none' />
+                    <label htmlFor="name">First Name *</label>
+                    <input type="text" id="name" value={formData.name} onChange={handleChange} required className='bg-gray-100 p-2 outline-none' />
                     <label htmlFor="address">Street Address *</label>
-                    <input type="text" id="address" required className='bg-gray-100 p-2 outline-none' />
+                    <input type="text" id="address" value={formData.address} onChange={handleChange} required className='bg-gray-100 p-2 outline-none' />
                     <label htmlFor="extra">Apartment, floor, etc. (optional)</label>
-                    <input type="text" id="extra" className='bg-gray-100 p-2 outline-none' />
+                    <input type="text" id="extra" value={formData.extra} onChange={handleChange} className='bg-gray-100 p-2 outline-none' />
                     <label htmlFor="town">Town/City *</label>
-                    <input type="text" id="town" required className='bg-gray-100 p-2 outline-none' />
+                    <input type="text" id="town" value={formData.town} onChange={handleChange} required className='bg-gray-100 p-2 outline-none' />
                     <label htmlFor="no">Phone Number *</label>
-                    <input type="number" id="no" min="10" required className='bg-gray-100 p-2 outline-none' />
+                    <input type="number" id="phone" min="10" value={formData.phone} onChange={handleChange} required className='bg-gray-100 p-2 outline-none' />
                     <label htmlFor="email">Email Address *</label>
-                    <input type="email" id="email" required className='bg-gray-100 p-2 outline-none' />
+                    <input type="email" id="email" value={formData.email} onChange={handleChange} required className='bg-gray-100 p-2 outline-none' />
                     <div className='flex items-center gap-3'>
-                        <input type="checkbox" id="check" className='w-5 h-5 accent-black' required />
+                        <input type="checkbox" id="saveInfo" className='w-5 h-5 accent-black' required />
                         <label htmlFor="check" >Save this information for faster check-out next time</label>
                     </div>
                 </div>
@@ -100,25 +137,30 @@ const Buy = () => {
                     <div className='border-b border-gray-300'></div>
                     <div className='flex items-center gap-2 text-sm sm:text-base'>
                         <input type="radio" id="bank" name="payment" value="Bank" className='accent-black w-4 h-4'
-                            checked={paymentMethod === "Bank"} onChange={(e) => setPaymentMethod(e.target.value)}/>
+                            checked={paymentMethod === "Bank"} onChange={(e) => setPaymentMethod(e.target.value)} />
                         <label htmlFor="bank">Bank</label>
                     </div>
                     <div className='flex items-center gap-2 text-sm sm:text-base'>
                         <input type="radio" id="cash" name="payment" value="Cash" className='accent-black w-4 h-4'
-                            checked={paymentMethod === "Cash"} onChange={(e) => setPaymentMethod(e.target.value)}/>
+                            checked={paymentMethod === "Cash"} onChange={(e) => setPaymentMethod(e.target.value)} />
                         <label htmlFor="cash">Cash on delivery</label>
                     </div>
 
                     {/* Coupon and Place Order */}
                     <div className='flex flex-col sm:flex-row sm:justify-center sm:items-center gap-3 w-full'>
-                        <input type="text" placeholder='Coupon Code {Try ankit}' className='border-2 p-2 rounded w-full sm:w-1/2' value={couponCode} onChange={(e) => setCouponCode(e.target.value)}/>
-                        <input type="button" value="Apply Coupon" className='bg-black text-white px-6 py-2 rounded cursor-pointer w-full sm:w-1/2' onClick={applyCoupon}/>
+                        <input type="text" placeholder='Coupon Code {Try ankit}' className='border-2 p-2 rounded w-full sm:w-1/2' value={couponCode} onChange={(e) => setCouponCode(e.target.value)} />
+                        <input type="button" value="Apply Coupon" className='bg-black text-white px-6 py-2 rounded cursor-pointer w-full sm:w-1/2' onClick={applyCoupon} />
                     </div>
                     <button type="button" className='p-3 mt-2 rounded bg-black text-white font-semibold hover:bg-gray-800 transition duration-200'
-                        onClick={() => {
-                            alert("Order Placed");
-                            navigate("/");
-                        }}
+                        onClick={async () => {
+                            try {
+                              await handlePost(); // post billing data
+                              alert("Order Placed");
+                              navigate("/");
+                            } catch (error) {
+                              console.error("Order failed:", error);
+                            }
+                          }}
                     >Place Order
                     </button>
                 </div>
