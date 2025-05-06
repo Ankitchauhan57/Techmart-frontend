@@ -11,7 +11,7 @@ const ProductDetail = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('http://localhost:3000/products')
+    fetch('https://techmart-backend-v4mh.onrender.com/products')
       .then((res) => {
         if (!res.ok) {
           throw new Error('Failed to fetch data');

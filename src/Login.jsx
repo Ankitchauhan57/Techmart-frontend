@@ -18,7 +18,7 @@ const Login = () => {
       return;
     }
 
-    axios.post('http://localhost:3000/login', { email, password })
+    axios.post('https://techmart-backend-v4mh.onrender.com/login', { email, password })
       .then(res => {
         console.log("Login successful:", res.data);
         setMessage(res.data.message);

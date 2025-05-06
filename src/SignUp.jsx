@@ -16,7 +16,7 @@ function SignUp() {
 
   useEffect(() => {
     axios
-      .get('http://localhost:3000/users')
+      .get('https://techmart-backend-v4mh.onrender.com/users')
       .then((res) => setData(res.data))
       .catch((err) => console.log(err))
   }, [])
@@ -26,7 +26,7 @@ function SignUp() {
       setMessage("X Please fill in all fields");
       return;
     }
-    axios.post('http://localhost:3000/users', { id: data.length + 1, name: name, email: email, password: password })
+    axios.post('https://techmart-backend-v4mh.onrender.com/users', { id: data.length + 1, name: name, email: email, password: password })
       .then((res) => {
         setData([...data, res.data]);
         setName('');
